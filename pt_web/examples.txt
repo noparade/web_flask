@@ -1,0 +1,23 @@
+fbb4acee1c53404589df6f222f0a2128  # bag
+86ca151d4d194af2945d9ef259dc4b46  # jacket
+09e168bc93e440558e2ab2ca7f7f0f6c  # bed or bulk
+08722e2dd96b41c88d9b0012e4c49acc  # recliner
+b2f0ec513bdd49c186d931cc3ba56791  # love seat?
+326427304d914caebfb96472db453870  # mattress or bed
+fb5183977360406bb4fb434f08f2ff82  # bed
+6230fb9a67954772a7d65195961ea6f8  # table or side table
+fa7cc89ab195429093104d9c18a6979a  # bed stand
+83124ee775af4de7b0984f405dff5223  # entertainment set or console?
+d0c833e456ff45e2a69c7d0b7217e03c  # chair or barstool
+83124ee775af4de7b0984f405dff5223  # entertainment set?
+fbb4acee1c53404589df6f222f0a2128  # bag
+55c24999c3604372980a102aeabc727c  # chair
+67911bd95126425d9adc0dfda6f4db53  # chest or cabinet
+fbb4acee1c53404589df6f222f0a2128  # bag
+6bce5fe3ab5f423581f47fcb932c05e9  # television stand or entertainment set
+0f6ccdae06064385b1eea2d7d604807a  # lounge?
+1757012b5a8846d6a6d5de89156b1e88  # table
+b81e20c2f359426bb0b6699670d67e2b  # clock, watch, camera
+9f701bc448114c3d8acf5d60cb761d4e  # sofa or bed
+
+

@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+    {% block navbar -%}
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#vss-navbar-collapse-1" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="navbar-brand">Finding Your Prodcut Type From Neighbors</span>
+        </div>
+        <div class="navbar-collapse collapse" id="vss-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="inactive">
+              <a href="/" title="Jet">Jet</a>  
+            </li>
+            <li class="active">
+              <a href="/walmart" title="Walmart">Walmart</a>  
+            </li>
+            <li>
+              <a href="http://profx.dev.jet.com/knn_pt_slides/" title="Documentation">Documentation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {%- endblock %}
+    {% block content -%}
+    <div class="container main">
+      <div class="row">
+        {% with messages = get_flashed_messages() -%}
+        {% if messages -%}
+        <div id="flash-messages">
+          {% for message in messages -%}
+          <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ message }}
+          </div>
+          {%- endfor %}
+        </div>
+        {%- endif %}
+        {%- endwith %}
+        <form method="post">
+          <div class="form-group">
+            <label class="control-label" for="image_url">Image URL</label>
+            <input class="form-control" id="image_url" name="image_url" type="text" value="{{ image_url }}">
+          </div>
+          <input class="btn btn-primary" id="submit_button" name="submit_button" type="submit" value="Search">
+        </form>
+      </div>
+      {% if no_sku is defined -%}
+      <h4 class="help-block">No SKU found from from image url  </h4>
+      <br>
+      <br>
+      {%- endif %}
+      {% if sku is defined -%}
+      <hr>
+      <h4 class="help-block">SKU found from image url </h4>
+      <br>
+      <div class="row">
+        <div class="col-md-4 col-lg-3">
+          <div class="thumbnail">
+            <div class="mt-element-ribbon" align="center">
+              <div class="product-img-div">
+                <img class="product-img" src="{{ sku.image_url }}">
+              </div>
+              
+              <div class="ribbon ribbon-left ribbon-shadow ribbon-color-danger">Anchor</div>
+            </div>
+            <!-- <div class="caption">
+              <h4 class="product-type">{{ sku.product_type }}</h4>
+              <p class="product-title">{{ sku.title }}</p>
+              <p class="product-price">{{ sku.dist }}</p>
+              <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  More Info
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="https://jet.com/product/products/{{ sku.id }}">PDP</a></li>
+                  <li><a href="http://xavier.dev.jet.network:9200/wmt_training_data/sku_vector/{{ sku.id }}">Index</a></li>
+                </ul>
+              </div>
+            </div> -->
+            <br>
+          </div>
+        </div>
+      </div>
+      {%- endif %}
+      {% if img is defined -%}
+      <br>
+      <div class="row">
+        <div class="col-md-4 col-lg-3">
+          <div class="thumbnail">
+            <div class="mt-element-ribbon" align="center">
+              <div class="product-img-div">
+                <img class="product-img" src="{{ img }}">
+              </div>
+              <div class="ribbon ribbon-left ribbon-shadow ribbon-color-danger">Anchor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {%- endif %}
+      {% if no_hits is defined -%}
+      <h4 class="help-block">No neighbor found from Walmart training data </h4>
+      <br>
+      <br>
+      {%- endif %}
+      {% if hits is defined -%}
+      <hr>
+      <h4 class="help-block">Neighbors found from Walmart training data  </h4>
+      <br>
+      <div class="row">
+        {% for hit in hits -%}
+        <div class="col-md-4 col-lg-3">
+          <div class="thumbnail">
+            <div class="product-img-div">
+              <img class="product-img" src="{{ hit.image_url }}">
+            </div>
+            <div class="caption">
+              <h4 class="product-type">{{ hit.product_type }}</h4>
+              <p class="product-title">{{ hit.title }}</p>
+              <p class="product-price">{{ hit.dist }}</p>
+              <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  More Info
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="https://jet.com/product/products/{{ hit.id }}">PDP</a></li>
+                  <li><a href="http://xavier.dev.jet.network:9200/wmt_training_data/sku_vector/{{ hit.id }}">Index</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        {%- endfor %}
+      {%- endif %}
+      </div>
+    </div>
+    {%- endblock %}

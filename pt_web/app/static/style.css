@@ -1,0 +1,121 @@
+body {
+    padding-top: 50px;
+}
+
+.navbar-fixed-top {
+    border: 0;
+}
+
+.main {
+    padding: 20px;
+}
+
+.thumbnail {
+    border-radius: 0 !important;
+}
+
+.sidebar {
+    display: none;
+}
+
+.product-img {
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+.product-img-div {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.product-brand {
+    height: 40px;
+    overflow: auto;
+}
+
+.product-title {
+    height: 60px;
+    overflow: auto;
+}
+
+.product-price {
+    font-size: 16px;
+}
+
+.fileinput-button {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    font-size: 200px !important;
+    direction: ltr;
+    cursor: pointer;
+}
+
+.mt-element-ribbon .ribbon.ribbon-shadow.ribbon-right, .mt-element-ribbon .ribbon.ribbon-shadow.ribbon-vertical-right {
+    box-shadow: -2px 2px 7px rgba(0,0,0,.4);
+}
+
+.mt-element-ribbon .ribbon.ribbon-color-danger {
+    background-color: #666666;
+    color: #fff;
+}
+
+.mt-element-ribbon .ribbon.ribbon-shadow {
+    box-shadow: 2px 2px 7px rgba(0,0,0,.4);
+}
+
+.mt-element-ribbon .ribbon.ribbon-right {
+    left: auto;
+    right: -2px;
+}
+
+.mt-element-ribbon .ribbon {
+    position: absolute;
+    top: 20px;
+	left:7px;
+    padding: .5em 1em;
+    z-index: 5;
+}
+
+.mt-element-ribbon .ribbon, .mt-element-ribbon .ribbon.ribbon-color-default, .mt-element-ribbon .ribbon.ribbon-color-default>.ribbon-sub, .mt-element-ribbon .ribbon>.ribbon-sub {
+    background-color: #bac3d0;
+    color: #384353;
+}
+
+#image-selector {
+    display: none !important;
+}
+
+@media (min-width: 768px) {
+    .navbar-input {
+        width: 400px !important;
+    }
+    .sidebar {
+        position: fixed;
+        top: 51px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        border-right: 1px dashed #eee;
+    }
+    .main {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+}
