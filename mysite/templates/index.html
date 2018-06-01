@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IPTC</title>
+    <link href="http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.3.custom.css" rel="stylesheet"/>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+    <link href="{{ url_for('static', filename='mycss.css') }}" rel="stylesheet">
+
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#vss-navbar-collapse-1" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="navbar-brand">Product type Review</span>
+        </div>
+        <div class="navbar-collapse collapse" id="vss-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="/" title="Jet">Main</a>
+            </li>
+            </li>
+             <li class="inactive">
+              <a href="/documentation" title="doc">Notes</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+<style media="screen">
+table,tr,td,th{
+  border: 2px solid black
+}
+</style>
+    <div class="container">
+      <br>
+      <br>
+      <br>
+
+<h1>{{ category }}</h1>
+  {% if data  %}
+  <div class="container">
+    <table align='center' class="table">
+    <thead>
+    <th>  <h3>Label </h3> </th>
+    <th> <h3>Count </h3></th>
+          {% if kag  %}
+    <th> <h3> Kaggle </h3></th>
+{% endif %}
+      <th> <h3>Synonyms </h3></th>
+      <th> <h3>Examples </h3></th>
+    </thead>
+    {%  for acc in data %}
+    <tr>
+      <td>
+          {{acc.label}}
+      </td>
+            <td>{{acc.count}}</td>
+                {% if kag  %}
+    <td>{{acc.kaggle}}</td>
+{% endif %}
+
+      <td>{{acc.synonyms}}</td>
+      <td>
+        <form id={{acc.label_copy}} name="formexample" method="post">
+          <input id={{acc.label_copy}} type="hidden" name="submit" value={{acc.label_copy}} />
+          <input id={{acc.label_copy}} type="submit" name="submit" value="check example" />
+         <!-- <input type="submit" name={{acc.label_copy}} value={{acc.label_copy}} /> -->
+        </form>
+      </td>
+    </tr>
+
+
+    {% endfor %}
+  </table>
+  </div>
+{% endif %}
+
+{% if examples %}
+<h3> {{ label }} </h3>
+<div class="container-fluid">
+  <div class="row">
+    {% for hit in examples -%}
+    <div class="col-md-3 col-lg-6">
+<div class="container-fluid">
+          <div>
+            <img  src="{{ hit.image_url }}" width="200px" height="200px" >
+          </div>
+            <br>
+          <div class="caption">
+            <!-- <h1>{{ hit.id}}</h2> -->
+            <h4>{{ hit.title}}</h4>
+            <h5>{{ hit.label_y}}</h5>
+          </div>
+</div>
+      <br>
+    </div>
+    {%- endfor %}
+</div>
+
+</div>
+</div>
+{% endif %}
+
+</html>

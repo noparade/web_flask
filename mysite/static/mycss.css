@@ -1,0 +1,21 @@
+/*
+body {
+  padding-top: 60px;
+}
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+} */
+
+
+table,tr,td,th{
+  border: 2px solid black
+}
+
+/* .image {
+    display: block;
+    margin: 2em auto;
+    background-color: #444;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+} */

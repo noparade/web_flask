@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+    {% block navbar -%}
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#vss-navbar-collapse-1" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="navbar-brand">Product-type review</span>
+        </div>
+        <div class="navbar-collapse collapse" id="vss-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="/" title="Main">Main</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {%- endblock %}
+
+  {% block content -%}
+
+<div class="container">
+<h1>Furniture</h1>
+  {% if data  %}
+
+  <div class="container">
+    <table align='center'>
+    <thead>
+    <th>  <h2>label </h2> </th>
+      <th> <h2>synonyms </h2></th>
+    </thead>
+    {%  for acc in data %}
+    <tr>
+      <td>{{acc.label}}</td>
+
+      <td>{{acc.synonyms}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% else %}
+<p>No access records found</p>
+{% endif %}
+
+    <div>
+</div>
+{%- endblock %}

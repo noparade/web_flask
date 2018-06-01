@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title></title>
+<link href="http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.3.custom.css" rel="stylesheet"/>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='mycss.css') }}" rel="stylesheet">
+  </head>
+  <body>
+    {% block body -%}
+    {% block navbar -%}
+    {%- endblock navbar %}
+
+    {% block content -%}
+    {%- endblock content %}
+    {%- endblock body %}
+  </body>
+</html>
